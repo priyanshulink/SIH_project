@@ -182,4 +182,76 @@ nav .explore-btn {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    /* Reduce chatbox size */
+    #chatbox {
+        width: 300px;
+        height: 380px;
+        bottom: 70px;
+        right: 15px;
+    }
+
+    /* Reduce sticky button size */
+    #chat-toggle {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide navbar elements to save space */
+    nav ul {
+        display: none; /* Hidden on tablets */
+    }
+    nav .explore-btn {
+        display: none; /* Hide explore button */
+    }
+
+    /* Reduce chatbox size further */
+    #chatbox {
+        width: 260px;
+        height: 360px;
+        bottom: 60px;
+        right: 10px;
+    }
+
+    /* Adjust sticky button */
+    #chat-toggle {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hide navbar completely for very small screens */
+    nav .logo {
+        font-size: 16px;
+    }
+    nav ul {
+        display: none; /* Hide nav links */
+    }
+    nav .explore-btn {
+        display: none; /* Hide explore button */
+    }
+
+    /* Chatbox becomes smaller */
+    #chatbox {
+        width: 220px;
+        height: 320px;
+        bottom: 50px;
+        right: 10px;
+    }
+
+    /* Sticky chatbot button smaller */
+    #chat-toggle {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }
