@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monastery360</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="video-background">
+    <source src="background_vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Sikkim Monastery</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Monasteries</a></li>
+      <li><a href="#">Virtual Tours</a></li>
+      <li><a href="#">Archives</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+    <a href="#" class="explore-btn">Explore</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Discover the Sikkim Monastery</h1>
+    <p>
+      Explore the ancient monasteries of Sikkim through immersive virtual tours 
+      and a rich digital archive. Experience the cultural heritage and spiritual 
+      essence of these sacred sites from anywhere in the world.
+    </p>
+    <a href="#" class="btn">Start Exploring</a>
+  </section>
+
+  
+<!-- Sticky Button -->
+   <button id="chat-toggle">🙏 Namaste! How may I help you?</button>
+
+   <!-- Chat Window -->
+<div id="chatbox">
+    <div id="chat-header">
+     Sikkim Monastery Chatbot
+     <span id="close-btn" style="cursor:pointer;">✖</span>
+    </div>
+    <div id="chat-messages">
+     <div class="message bot">🙏 Namaste! Ask me about any Sikkim monastery.</div>
+    </div>
+    <div id="chat-input">
+      <input type="text" id="user-input" placeholder="Type monastery name...">
+      <button id="send-btn">Send</button>
+    </div>
+</div>
+<!-- sticky chatbot end -->
+
+
+ <script src="script.js"></script>
+</body>
+</html>
