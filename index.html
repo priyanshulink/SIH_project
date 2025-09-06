@@ -79,89 +79,91 @@
 
 
   
-<!-- Sticky Button -->
-   <button id="chat-toggle">🙏 Namaste! How may I help you?</button>
+<div class="chatbot-wrapper">
+    <!-- Namaste Chat -->
+    <button id="chat-toggle">🙏 Namaste! How may I help you?</button>
+    <div id="chatbox">
+      <div id="chat-header">
+        Sikkim Monastery Chatbot
+        <span id="close-btn" style="cursor:pointer;">✖</span>
+      </div>
+      <div id="chat-messages">
+        <div class="message bot">🙏 Namaste! Ask me about any Sikkim monastery.</div>
+      </div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type monastery name...">
+        <button id="send-btn">Send</button>
+        
+      </div>
+     
 
-   <!-- Chat Window -->
-<div id="chatbox">
-    <div id="chat-header">
-     Sikkim Monastery Chatbot
-     <span id="close-btn" style="cursor:pointer;">✖</span>
     </div>
-    <div id="chat-messages">
-     <div class="message bot">🙏 Namaste! Ask me about any Sikkim monastery.</div>
-    </div>
-    <div id="chat-input">
-      <input type="text" id="user-input" placeholder="Type monastery name...">
-      <button id="send-btn">Send</button>
-    </div>
-</div>
-<!-- sticky chatbot end -->
 
-<!-- virtural section -->
- <!-- Call to Action Section -->
-<section class="cta">
-  <h2>Embark on a Virtual Journey</h2>
-  <p>
-    Discover the hidden gems and spiritual significance of Sikkim's monasteries 
-    from the comfort of your home. Our platform offers a unique window into a 
-    world of tranquility and cultural richness.
-  </p>
-  <a href="#" class="cta-btn">Start Exploring Now</a>
-</section>
+    <!-- AI Chatbot -->
+    <div class="ai-trigger-btn" id="aiTriggerBtn">
+      <button class="ai-box">🤖 AI for more info </button>
+    </div>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Left side -->
-    <div class="footer-left">
-      <div class="footer-logo">📜</div>
-      <div>
-        <h4>Sikkim Monastery</h4>
-        <p>Preserving heritage, one pixel at a time.</p>
+    <div class="ai-popup-container" id="aiPopupContainer">
+      <header class="ai-popup-header">
+        <div class="ai-bot-info">
+          <span>AI Monastery Assistant</span>
+        </div>
+        <button id="aiCloseBtn">&times;</button>
+      </header>
+      <div class="ai-chat-window" id="aiChatWindow">
+        <div class="ai-message bot">
+          <div class="ai-message-content">🙏 Welcome! Ask me about any Sikkim monastery.</div>
+        </div>
+      </div>
+      <div class="ai-chat-input-section">
+        <textarea id="aiMessageInput" placeholder="Type your question..."></textarea>
+        <button id="aiEmojiBtn">😊</button>
+      </div>
+      <emoji-picker class="ai-emoji-picker"></emoji-picker>
+    </div>
+  </div>
+
+  <!-- Virtual Tour Section -->
+  <section class="cta">
+    <h2>Embark on a Virtual Journey</h2>
+    <p>Discover the hidden gems and spiritual significance of Sikkim's monasteries from the comfort of your home. Our platform offers a unique window into a world of tranquility and cultural richness.</p>
+    <a href="#" class="cta-btn">Start Exploring Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">📜</div>
+        <div>
+          <h4>Sikkim Monastery</h4>
+          <p>Preserving heritage, one pixel at a time.</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-
-    <!-- Center Links -->
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact Us</a>
+    <div class="footer-bottom">
+      © 2024 Sikkim Monastery. All rights reserved.
     </div>
+  </footer>
 
-    <!-- Right Social -->
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    © 2024 Sikkim Monastery. All rights reserved.
-  </div>
-</footer>
-
-
-<!-- this script for importing map -->
-<script 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTB5ED6fs-mLvhtRhnUc7J-GzlsBV8jtI&callback=initMap" 
-  async defer>
-</script>
-<script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTB5ED6fs-mLvhtRhnUc7J-GzlsBV8jtI&callback=initMap" async defer></script>
+  <script src="script.js"></script>
+  <script src="mainai.js"></script>
 </body>
 </html>
 
-
-
-<!-- this script for importing map -->
-<script 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTB5ED6fs-mLvhtRhnUc7J-GzlsBV8jtI&callback=initMap" 
-  async defer>
-</script>
-<script src="script.js"></script>
-</body>
-</html>
 
 
 
