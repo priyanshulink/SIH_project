@@ -66,50 +66,105 @@ nav .explore-btn {
     font-weight: bold;
 }
 
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden fully */
+  width: 80%;   /* take 80% of screen on mobile */
+  max-width: 300px;
+  height: 100%;
+  background: #111; /* dark solid background */
+  transition: right 0.3s ease-in-out;
+  padding: 60px 20px 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Side Menu Links */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+}
+
+.side-menu ul li a {
+  text-decoration: none;
+  color: white;  /* white links */
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.side-menu ul li a:hover {
+  color: #007bff; /* hover effect */
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
 
 /* Side Menu */
 .side-menu {
   position: fixed;
   top: 0;
-  right: -250px; /* hidden by default */
-  width: 250px;
+  right: -100%; /* hidden fully */
+  width: 80%;   /* take 80% of screen on mobile */
+  max-width: 300px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.95);
+  background: #111; /* dark solid background */
   transition: right 0.3s ease-in-out;
-  padding-top: 60px;
+  padding: 60px 20px 20px;
   z-index: 2000;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Side Menu Links */
 .side-menu ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .side-menu ul li {
   margin: 20px 0;
-  text-align: center;
 }
 
 .side-menu ul li a {
   text-decoration: none;
-  color: white;
+  color: white;  /* white links */
   font-size: 18px;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
 .side-menu ul li a:hover {
-  color: #007bff;
+  color: #007bff; /* hover effect */
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: bold;
   color: white;
   cursor: pointer;
 }
-
 
 /* Hero Section */
 .hero {
@@ -341,5 +396,6 @@ nav .explore-btn {
         font-size: 0.8rem;
     }
 }
+
 
 
