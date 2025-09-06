@@ -1,3 +1,25 @@
+//side menu
+// Side menu toggle
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("side-menu");
+const closeSide = document.getElementById("close-side");
+
+hamburger.addEventListener("click", () => {
+  sideMenu.style.right = "0"; // Slide in
+});
+
+closeSide.addEventListener("click", () => {
+  sideMenu.style.right = "-250px"; // Slide out
+});
+
+// Close menu when clicking outside
+window.addEventListener("click", (e) => {
+  if (e.target === sideMenu) {
+    sideMenu.style.right = "-250px";
+  }
+});
+
+
 // Monastery database with Wikipedia links
 const monasteries = [
   { 
@@ -222,3 +244,4 @@ function speak(text) {
   utterance.lang = "en-IN"; 
   speechSynthesis.speak(utterance);
 }
+
