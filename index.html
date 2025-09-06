@@ -52,6 +52,26 @@
     </p>
     <a href="#" class="btn">Start Exploring</a>
   </section>
+<!--map section  -->
+  
+    <!-- Map Section -->
+  <section class="map-section">
+    <h2>Interactive Map of Sikkim's Monasteries</h2>
+    <p>Click on the markers or list to explore each monastery of Sikkim.</p>
+
+    <div class="container">
+      <!-- Sidebar List -->
+      <div class="sidebar">
+        <h3>Monasteries</h3>
+        <input type="text" id="searchInput" placeholder="Search for a monastery..." />
+        <ul id="monasteryList"></ul>
+      </div>
+
+      <!-- Map -->
+      <div id="map"></div>
+    </div>
+  </section>
+
 
   
 <!-- Sticky Button -->
@@ -73,8 +93,14 @@
 </div>
 <!-- sticky chatbot end -->
 
-
+  
+<!--this script for mapp  -->
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTB5ED6fs-mLvhtRhnUc7J-GzlsBV8jtI&callback=initMap" 
+  async defer>
+</script>
  <script src="script.js"></script>
 </body>
 </html>
+
 
