@@ -347,18 +347,20 @@ nav .explore-btn {
   }
 }
     /* Reduce chatbox size further */
-    #chatbox {
-        width: 260px;
-        height: 360px;
-        bottom: 60px;
-        right: 10px;
-    }
+#chatbox {
+    width: 260px;
+    height: 360px;
+    bottom: 70px;
+    right: 15px;
+}
 
-    /* Adjust sticky button */
-    #chat-toggle {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
+#chat-toggle {
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -387,6 +389,7 @@ nav .explore-btn {
         font-size: 0.8rem;
     }
 }
+
 
 
 
