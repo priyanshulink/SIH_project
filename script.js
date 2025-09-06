@@ -1,23 +1,16 @@
 //side menu
-// Side menu toggle
-const hamburger = document.getElementById("hamburger");
-const sideMenu = document.getElementById("side-menu");
-const closeSide = document.getElementById("close-side");
+const hamburger = document.querySelector(".hamburger");
+const sideMenu = document.querySelector(".side-menu");
+const closeSide = document.querySelector(".close-btn");
 
 hamburger.addEventListener("click", () => {
-  sideMenu.style.right = "0"; // Slide in
+  sideMenu.style.right = "0"; // show side menu
 });
 
 closeSide.addEventListener("click", () => {
-  sideMenu.style.right = "-250px"; // Slide out
+  sideMenu.style.right = "-100%"; // hide side menu
 });
 
-// Close menu when clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === sideMenu) {
-    sideMenu.style.right = "-250px";
-  }
-});
 
 
 // Monastery database with Wikipedia links
@@ -244,4 +237,5 @@ function speak(text) {
   utterance.lang = "en-IN"; 
   speechSynthesis.speak(utterance);
 }
+
 
