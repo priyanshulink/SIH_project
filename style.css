@@ -320,44 +320,31 @@ nav .explore-btn {
 
 
 /* Responsive adjustments for smaller screens */
-/*side menu*/
-/* Show hamburger on smaller screens */
 @media (max-width: 768px) {
-  nav ul,
+  /* Hide normal nav items */
+  nav ul {
+    display: none;
+  }
   nav .explore-btn {
-    display: none; /* Hide main nav */
+    display: none;
   }
+
+  /* Show hamburger on mobile */
   .hamburger {
-    display: block; /* Show hamburger */
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+  }
+
+  /* Ensure side menu works properly */
+  .side-menu {
+    display: flex; /* enable side menu layout */
+    flex-direction: column;
   }
 }
-@media (max-width: 1024px) {
-    /* Reduce chatbox size */
-    #chatbox {
-        width: 300px;
-        height: 380px;
-        bottom: 70px;
-        right: 15px;
-    }
-
-    /* Reduce sticky button size */
-    #chat-toggle {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-        bottom: 15px;
-        right: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Hide navbar elements to save space */
-    nav ul {
-        display: none; /* Hidden on tablets */
-    }
-    nav .explore-btn {
-        display: none; /* Hide explore button */
-    }
-
     /* Reduce chatbox size further */
     #chatbox {
         width: 260px;
@@ -399,6 +386,7 @@ nav .explore-btn {
         font-size: 0.8rem;
     }
 }
+
 
 
 
