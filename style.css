@@ -67,6 +67,9 @@ nav .explore-btn {
 }
 
 /* Side Menu */
+.hamburger{
+  color: wheat;
+}
 .side-menu {
   position: fixed;
   top: 0;
@@ -396,6 +399,7 @@ nav .explore-btn {
         font-size: 0.8rem;
     }
 }
+
 
 
 
