@@ -13,6 +13,7 @@ closeSide.addEventListener("click", () => {
 
 
 
+
 // Monastery database with Wikipedia links
 const monasteries = [
   { 
@@ -239,3 +240,151 @@ function speak(text) {
 }
 
 
+// map section
+let map;
+const monasteriesmap = [
+  { 
+    name: "Rumtek Monastery", lat: 27.305827, lng: 88.53637,
+    img: "RumtekMonastery.jpeg",
+    details: "The largest monastery in Sikkim, seat of the Karmapa Lama."
+  },
+  { 
+    name: "Pemayangtse Monastery", lat: 27.305, lng: 88.252,
+    img: "PemayangtseMonastery.jpeg",
+    details: "One of the oldest monasteries, founded in 1705, near Pelling."
+  },
+  { 
+    name: "Tashiding Monastery", lat: 27.3089, lng: 88.2979,
+    img: "TashidingMonastery.jpeg",
+    details: "Considered the holiest monastery in Sikkim, built in 1641."
+  },
+  { 
+    name: "Enchey Monastery", lat: 27.3359, lng:  88.6192,
+    img: "EncheyMonastery.jpeg",
+    details: "Located near Gangtok, famous for its religious festivals."
+  },
+  { 
+    name: "Phodong Monastery", lat:  27.416786, lng: 88.582944,
+    img: "PhodongMonastery.jpg",
+    details: "Built in the 18th century, known for annual mask dance festivals."
+  },
+  { 
+    name: "Ralong Monastery", lat: 27.325734, lng: 27.325734,
+    img: "RalongMonastery.jpeg",
+    details: "A Kagyu sect monastery, known for its grand architecture."
+  },
+  { 
+    name: "Labrang Monastery", lat: 27.418881, lng: 88.581438,
+    img: "LabrangMonastery.jpg",
+    details: "Small but historic monastery near Phodong."
+  },
+  { 
+    name: "Dubdi Monastery", lat: 27.366206, lng: 88.230086,
+    img: "DubdiMonastery.jpeg",
+    details: "Built in 1701, the oldest monastery in Sikkim, near Yuksom."
+  },
+  { 
+    name: "Kartok Monastery", lat: 27.33, lng: 88.62,
+    img: "KartokMonastery.jpg",
+    details: "Situated at Yuksom, dedicated to Kartok Lama."
+  },
+  //
+  { 
+    name: "Rinchenpong Monastery", lat:  27.2345, lng: 88.2721,
+    img: "rinchenpongmonastery.jpg",
+    details: "Known for its beautiful sunset views over Kanchenjunga."
+  },
+  { 
+    name: "Zong Dog Palri Fo-Brang Monastery", lat: 16.7000, lng:74.2333,
+    img: "ZangDhokPalriPhodang.jpg",
+    details: "Also known as 'Palace Monastery', located near Pemayangtse."
+  },
+  { 
+    name: "Sanga Choeling Monastery", lat: 27.29, lng: 88.23,
+    img: "SangaChoelingMonastery.jpg",
+    details: "Founded in 1697, accessible by a steep trek from Pelling."
+  },
+  {
+   name: "Bongtang Monastery","lat": 27.3690385,"lng": 88.6132007,
+   img: "BongtangMonastery.jpg",
+   details: "Also known as Gonjang Monastery, it was established in 1981. It follows the Nyingma school of Tibetan Buddhism and is located near Tashi Viewpoint in Gangtok."
+  },
+  { 
+    name: "Lingdum (Ranka) Monastery", lat: 27.3347, lng: 88.6416,
+    img: "Lingdum(Ranka)Monastery.jpg",
+    details: "A relatively new but very large monastery near Gangtok."
+  },
+  { 
+    name: "Gonjang Monastery", lat: 27.36908, lng: 88.613314,
+    img: "GonjangMonastery.jpeg",
+    details: "Located near Tashi View Point, built in 1981."
+  }
+];function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 27.5, lng: 88.5 },
+    zoom: 8
+  });
+
+  monasteriesmap.forEach((monastery) => {
+    const marker = new google.maps.Marker({
+      position: { lat: monastery.lat, lng: monastery.lng },
+      map: map,
+      title: monastery.name
+    });
+
+    marker.addListener("click", () => {
+      showMonasteryDetails(monastery);
+      map.setCenter({ lat: monastery.lat, lng: monastery.lng });
+      map.setZoom(11);
+    });
+  });
+
+  setupSidebar();
+
+  // Default: Show Rumtek Monastery
+  const defaultMonastery = monasteriesmap.find(m => m.name === "Rumtek Monastery");
+  if (defaultMonastery) {
+    showMonasteryDetails(defaultMonastery);
+    map.setCenter({ lat: defaultMonastery.lat, lng: defaultMonastery.lng });
+    map.setZoom(11);
+  }
+}
+
+// ===== Setup Sidebar List =====
+function setupSidebar() {
+  const list = document.getElementById("monastery-list");
+  if (!list) return;
+
+  monasteriesmap.forEach((m) => {
+    const li = document.createElement("li");
+    li.textContent = m.name;
+    li.style.cursor = "pointer";
+    li.style.padding = "5px 0";
+
+    li.addEventListener("click", () => {
+      map.setCenter({ lat: m.lat, lng: m.lng });
+      map.setZoom(11);
+      showMonasteryDetails(m);
+    });
+
+    list.appendChild(li);
+  });
+}
+
+// ===== Show Monastery Details =====
+function showMonasteryDetails(monastery) {
+  const container = document.getElementById("monastery-details");
+  if (!container) return;
+
+  // Update Image
+  const img = container.querySelector("img");
+  if (img) img.src = monastery.img || "images/default.jpg";
+
+  // Update Name/Title
+  const title = container.querySelector("h4");
+  if (title) title.innerText = monastery.name;
+
+  // Update Description
+  const desc = container.querySelector(".monastery-desc");
+  if (desc) desc.innerText = monastery.details;
+}
