@@ -1,4 +1,4 @@
-
+/* Reset & base */
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +8,8 @@
 
 body, html {
     height: 100%;
-    position: relative;
     overflow-x: hidden;
 }
-
-
-
 
 /* Navbar */
 nav {
@@ -39,6 +35,7 @@ nav ul {
     display: flex;
     gap: 25px;
 }
+
 nav ul li a {
     text-decoration: none;
     color: white;
@@ -55,68 +52,68 @@ nav .explore-btn {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
-    text-decoration: none;
     font-weight: bold;
-}
-/* side menu */
-/* Side Menu */
-.hamburger{
-  color: wheat;
-  display: none;
-}
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%; /* hidden fully */
-  width: 80%;   /* take 80% of screen on mobile */
-  max-width: 300px;
-  height: 100%;
-  background: #0a0a0a; /* dark solid background */
-  transition: right 0.3s ease-in-out;
-  padding: 60px 20px 20px;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
+    text-decoration: none;
 }
 
-/* Side Menu Links */
+/* Hamburger & Side Menu */
+.hamburger {
+    color: wheat;
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background: #0a0a0a;
+    transition: right 0.3s ease-in-out;
+    padding: 60px 20px 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
 .side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .side-menu ul li {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .side-menu ul li a {
-  text-decoration: none;
-  color: white;  /* white links */
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 .side-menu ul li a:hover {
-  color: #007bff; /* hover effect */
+    color: #007bff;
 }
 
-/* Close Button */
 .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
 }
 
-/* Hero Section with video background */
+/* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;         /* Full screen height */
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -125,18 +122,16 @@ nav .explore-btn {
     color: white;
 }
 
-/* Video only inside hero */
-.hero .video-background {
-    position: absolute;
+.video-background {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* Cover hero fully */
-    z-index: -1;         /* Behind content */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
-/* Hero text content */
 .hero-content {
     display: flex;
     flex-direction: column;
@@ -145,8 +140,8 @@ nav .explore-btn {
     height: 100%;
     width: 100vw;
     position: relative;
-    z-index: 1;          /* Above video */
-    background: rgba(0, 0, 0, 0.4); /* Optional dark overlay */
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-radius: 10px;
 }
@@ -162,7 +157,6 @@ nav .explore-btn {
     max-width: 700px;
 }
 
-/* Button */
 .hero-content .btn {
     background: #007bff;
     color: white;
@@ -172,36 +166,38 @@ nav .explore-btn {
     font-weight: bold;
     text-decoration: none;
 }
+
 .hero-content .btn:hover {
     background: #0056b3;
 }
-/* sticky chatbot css */
+
+/* Sticky Namaste Chatbox */
 #chat-toggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     background: purple;
     color: white;
-    padding: 12px 18px;
+    padding: 8px 14px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    z-index: 5000;   /* Always on top */
+    z-index: 5000;
+    font-size: 0.85rem;
 }
 
 #chatbox {
     position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 340px;
-    height: 420px;
+    bottom: 70px;
+    right: 15px;
+    width: 260px;
+    height: 360px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     display: none;
     flex-direction: column;
-    z-index: 5000;   /* Always on top */
+    z-index: 5000;
 }
 
 #chat-header {
@@ -214,12 +210,14 @@ nav .explore-btn {
     align-items: center;
     border-radius: 12px 12px 0 0;
 }
+
 #chat-messages {
     flex: 1;
     overflow-y: auto;
     padding: 10px;
     font-size: 14px;
 }
+
 .message {
     margin: 6px 0;
     padding: 8px;
@@ -227,12 +225,23 @@ nav .explore-btn {
     max-width: 95%;
     white-space: pre-line;
 }
-.bot { background: #f1f1f1; text-align: left; }
-.user { background: #d1b3ff; text-align: right; margin-left: auto; }
+
+.bot {
+    background: #f1f1f1;
+    text-align: left;
+}
+
+.user {
+    background: #d1b3ff;
+    text-align: right;
+    margin-left: auto;
+}
+
 #chat-input {
     display: flex;
     border-top: 1px solid #ddd;
 }
+
 #chat-input input {
     flex: 1;
     border: none;
@@ -240,6 +249,7 @@ nav .explore-btn {
     outline: none;
     font-size: 14px;
 }
+
 #chat-input button {
     background: purple;
     color: white;
@@ -247,230 +257,173 @@ nav .explore-btn {
     padding: 10px 15px;
     cursor: pointer;
 }
-.wiki-link {
-    display: inline-block;
-    margin-top: 6px;
-    font-size: 13px;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-}
 
-
-
-/* Responsive adjustments for smaller screens */
-/* side menu */
-@media (max-width: 768px) {
-  /* Hide normal nav items */
-  nav ul {
-    display: none;
-  }
-  nav .explore-btn {
-    display: none;
-  }
-
-  /* Show hamburger on mobile */
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-    background: none;
-    border: none;
-  }
-
-  /* Ensure side menu works properly */
-  .side-menu {
-    display: flex; /* enable side menu layout */
-    flex-direction: column;
-  }
-}
-#chatbox {
-    width: 260px;
-    height: 360px;
-    bottom: 70px;
-    right: 15px;
-}
-
-#chat-toggle {
+/* AI Chatbot Popup */
+.ai-trigger-btn {
+    position: fixed;
     bottom: 15px;
-    right: 15px;
-    font-size: 0.85rem;
+    left: 15px;
+    background: purple;
+    color: white;
     padding: 8px 14px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 5000;
+    font-size: 0.85rem;
 }
 
-
-
-/* Fullscreen background video */
-.video-background {
-    position: fixed;      /* Fixed in place */
-    top: 0;
-    left: 0;
-    width: 100vw;         /* Full viewport width */
-    height: 100vh;        /* Full viewport height */
-    object-fit: cover;    /* Fill screen without distortion */
-    z-index: -1;          /* Behind all content */
-}
-
-/* map section  */
-
-.map-section {
-  padding: 40px 20px;
+.ai-box {
+  background-color: purple;
+  border: none;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
 }
 
-.map-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+.ai-trigger-btn img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 
-.map-section p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #ddd;
+.ai-popup-container {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* default left */
+    right: auto;
+    width: 300px;
+    max-height: 500px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    flex-direction: column;
+    z-index: 9999;
 }
 
-/* Main container: sidebar + map */
-.container {
-  display: flex;
-  gap: 20px;
-  height: 80vh; /* take 80% of viewport height */
+.ai-popup-header {
+    background-color: #7c59f7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-/* Sidebar styles */
-.sidebar {
-  width: 300px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  overflow-y: auto;
+.ai-bot-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.sidebar h3 {
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-  color: #444;
+.ai-header-bot-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
-.sidebar input {
-  width: 100%;
-  padding: 8px 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+.ai-chat-window {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.ai-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-.sidebar ul li {
-  padding: 8px 10px;
-  margin-bottom: 6px;
-  background: #f5f5f5;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+.ai-message.bot .ai-message-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
-.sidebar ul li:hover {
-  background: #ddd;
+.ai-message .ai-message-content {
+    background-color: #6a4bd9;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 100%;
+    color: white;
 }
 
-/* Map styles */
-/* Map Section */
+.ai-message.user .ai-message-content {
+    background-color: #007bff;
+    align-self: flex-end;
+}
+
+/* Typing indicator */
+.typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.typing-indicator .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+
+/* Chat Input Section */
+.ai-chat-input-section {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    background-color: #272d34;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Emoji Picker */
+.ai-emoji-picker {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 40px;
+    width: 350px;
+    max-height: 300px;
+    z-index: 1000;
+}
+
+/* Sikkim Map Section */
 #sikkim-map {
-  padding: 40px 20px;
-  background: #f9f9f9;
+    padding: 40px 20px;
+    background: #f9f9f9;
 }
 
 #sikkim-map h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #333;
-}
-/* Container for map + details */
-.map-container {
-  display: flex;           /* side by side */
-  gap: 20px;               /* spacing between map and details */
-  align-items: stretch;    /* make both same height */
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-/* Map box */
-#map {
-  flex: 1;                 /* take equal width */
-  height: 500px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Monastery details */
-#monastery-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-#monastery-details h4{
-    font-size: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-/* Image inside details */
-#monastery-img {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  flex-shrink: 0;
-}
-
-/* Description at bottom of details box */
-.monastery-desc {
-  margin-top: auto;       /* pushes it below image */
-  padding-top: 10px;
-}
-
-.monastery-desc p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Optional: responsive adjustments */
-@media (max-width: 768px) {
-  .map-container {
-    flex-direction: column;   /* stack vertically on small screens */
-  }
-}
-
-/* css for map and monastery detail */
-
-/* Base layout */
 .map-container {
     display: flex;
-    flex-wrap: wrap;          /* allow wrapping on smaller screens */
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     align-items: flex-start;
 }
 
 #map {
-    flex: 1 1 500px;          /* flexible width */
+    flex: 1 1 500px;
     min-width: 300px;
     height: 500px;
     border-radius: 12px;
@@ -481,7 +434,6 @@ nav .explore-btn {
     flex: 1 1 300px;
     min-width: 250px;
     max-width: 500px;
-    height: auto;
     padding: 20px;
     border-radius: 12px;
     background: #fff;
@@ -491,92 +443,61 @@ nav .explore-btn {
     align-items: center;
 }
 
-/* Responsive layout */
-@media (max-width: 770px) {
-    .map-container {
-        flex-direction: column;   /* stack map and details vertically */
-        align-items: center;      /* center both */
-        gap: 15px;
-    }
-
-    #map, #monastery-details {
-        width: 100%;              /* full width */
-        max-width: 100%;          /* remove any fixed max-width */
-    }
-
-    #map {
-        height: 350px;            /* smaller map height */
-    }
-
-    #monastery-img {
-        width: 100%;
-        height: auto;
-        max-height: 300px;
-    }
-
-    .monastery-desc p {
-        font-size: 14px;
-        text-align: center;
-    }
+#monastery-details h4 {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
-/* Extra small screens */
-@media (max-width: 480px) {
-    #map {
-        height: 250px;
-        border-radius: 8px;
-    }
-
-    #monastery-details {
-        padding: 15px;
-        border-radius: 8px;
-    }
-
-    #monastery-img {
-        max-height: 200px;
-    }
-
-    .monastery-desc p {
-        font-size: 13px;
-    }
+#monastery-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
 }
 
-/* virtual section */
+.monastery-desc p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
 /* CTA Section */
 .cta {
-  text-align: center;
-  padding: 80px 20px;
-  background: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    background: #fff;
 }
 
 .cta h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #222;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #222;
 }
 
 .cta p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
 
 .cta-btn {
-  display: inline-block;
-  background: #007bff;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
 .cta-btn:hover {
-  background: #0056b3;
+    background: #0056b3;
 }
 
 /* Footer */
@@ -649,37 +570,106 @@ nav .explore-btn {
 }
 
 /* Responsive Footer */
+/* ================== Chat Responsive ================== */
 
-  @media (max-width: 770px) {
-      .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-      }
+/* Tablet (601px–991px): AI bottom-left, Namaste bottom-right (same as desktop) */
+@media (max-width: 992px) and (min-width: 601px) {
+  .ai-popup-container {
+    bottom: 20px;
+    top: auto;
+    left: 15px;
+    right: auto;
+    transform: none;
+    width: 300px;
+    max-height: 70vh;
+  }
+  .ai-trigger-btn {
+    bottom: 15px;
+    top: auto;
+    left: 15px;
+    right: auto;
+    transform: none;
+  }
 
-      .footer-left {
-        justify-content: center;
-      }
+  #chatbox {
+    bottom: 70px;
+    top: auto;
+    right: 15px;
+    left: auto;
+    transform: none;
+    width: 260px;
+    height: 380px;
+  }
+  #chat-toggle {
+    bottom: 15px;
+    top: auto;
+    right: 15px;
+    left: auto;
+    transform: none;
+  }
+}
+/* Hide send button on small screens */
+@media (max-width: 600px) {
+  .send-btn {
+    display: none;
+  }
 
-      .footer-links {
-        flex-direction: column;
-        gap: 10px;
-      }
+  /* Optional: make input take full width */
+  #chatbox input[type="text"] {
+    width: 100%;
+  }
+}
 
-      .footer-social {
-        justify-content: center;
-      }
-    }
 
-    @media (max-width: 480px) {
-      .footer-left {
-        flex-direction: column;
-        text-align: center;
-      }
+/* Mobile (≤600px): AI top-center, Namaste bottom-center */
+/* Mobile (≤600px): both chatbots stacked at bottom-right */
+/* Default: hide wrapper */
+/* Mobile (≤600px): stack Namaste and AI at bottom-right with smaller width */
+@media (max-width: 600px) {
+  /* Buttons smaller */
+  #chat-toggle,
+  .ai-trigger-btn {
+    bottom: auto;
+    right: 15px;
+    left: auto;
+    margin-top: 8px;
+    transform: none;
+    position: fixed;
+    padding: 5px 8px;    /* slightly smaller button padding */
+    font-size: 0.7rem;   /* slightly smaller font */
+    border-radius: 18px;
+  }
 
-      .footer-left img {
-        margin-bottom: 5px;
-      }
-    }
+  /* Namaste toggle above */
+  #chat-toggle {
+    bottom: 65px; /* slightly closer to AI button */
+  }
+
+  /* AI toggle below Namaste */
+  .ai-trigger-btn {
+    bottom: 12px;
+  }
+
+  /* Chat windows smaller */
+  #chatbox,
+  .ai-popup-container {
+    width: 75%;         /* narrower */
+    max-width: 200px;   /* smaller max width */
+    height: 50vh;       /* shorter */
+    right: 15px;
+    left: auto;
+    border-radius: 8px; /* slightly smaller corners */
+  }
+
+  /* Namaste chatbox above AI */
+  #chatbox {
+    bottom: 110px;
+  }
+
+  /* AI popup just above its button */
+  .ai-popup-container {
+    bottom: 60px;
+  }
+}
+
 
