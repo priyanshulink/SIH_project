@@ -8,19 +8,12 @@
 
 body, html {
     height: 100%;
+    position: relative;
     overflow-x: hidden;
 }
 
-/* Background video */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
+
+
 
 /* Navbar */
 nav {
@@ -65,7 +58,7 @@ nav .explore-btn {
     text-decoration: none;
     font-weight: bold;
 }
-
+/* side menu */
 /* Side Menu */
 .hamburger{
   color: wheat;
@@ -78,7 +71,7 @@ nav .explore-btn {
   width: 80%;   /* take 80% of screen on mobile */
   max-width: 300px;
   height: 100%;
-  background: #111; /* dark solid background */
+  background: #0a0a0a; /* dark solid background */
   transition: right 0.3s ease-in-out;
   padding: 60px 20px 20px;
   z-index: 2000;
@@ -120,82 +113,57 @@ nav .explore-btn {
   cursor: pointer;
 }
 
-/* Side Menu */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%; /* hidden fully */
-  width: 80%;   /* take 80% of screen on mobile */
-  max-width: 300px;
-  height: 100%;
-  background: #111; /* dark solid background */
-  transition: right 0.3s ease-in-out;
-  padding: 60px 20px 20px;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Side Menu Links */
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu ul li {
-  margin: 20px 0;
-}
-
-.side-menu ul li a {
-  text-decoration: none;
-  color: white;  /* white links */
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.side-menu ul li a:hover {
-  color: #007bff; /* hover effect */
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-
-/* Hero Section */
+/* Hero Section with video background */
 .hero {
-    height: 100vh;
+    position: relative;
+    height: 100vh;         /* Full screen height */
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
-    background: rgba(0, 0, 0, 0.4);
 }
 
-.hero h1 {
+/* Video only inside hero */
+.hero .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Cover hero fully */
+    z-index: -1;         /* Behind content */
+}
+
+/* Hero text content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    position: relative;
+    z-index: 1;          /* Above video */
+    background: rgba(0, 0, 0, 0.4); /* Optional dark overlay */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
     font-size: 3rem;
-    font-weight: bold;
     margin-bottom: 20px;
 }
 
-.hero p {
+.hero-content p {
     font-size: 1.2rem;
-    max-width: 800px;
     margin-bottom: 30px;
+    max-width: 700px;
 }
 
-.hero .btn {
+/* Button */
+.hero-content .btn {
     background: #007bff;
     color: white;
     padding: 12px 24px;
@@ -203,44 +171,10 @@ nav .explore-btn {
     font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
-    transition: background 0.3s;
 }
-
-.hero .btn:hover {
+.hero-content .btn:hover {
     background: #0056b3;
 }
-
-/*video background media quary*/
-/* Fullscreen background video */
-.video-background {
-    position: fixed;      /* Fixed in place */
-    top: 0;
-    left: 0;
-    width: 100vw;         /* Full viewport width */
-    height: 100vh;        /* Full viewport height */
-    object-fit: cover;    /* Fill screen without distortion */
-    z-index: -1;          /* Behind all content */
-}
-
-/* Optional tweaks for very small screens */
-@media (max-width: 480px) {
-    .video-background {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;  /* Ensures video still covers full screen */
-    }
-}
-
-@media (max-width: 768px) {
-    .video-background {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-    }
-}
-
-
-
 /* sticky chatbot css */
 #chat-toggle {
     position: fixed;
@@ -253,7 +187,9 @@ nav .explore-btn {
     border-radius: 25px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 5000;   /* Always on top */
 }
+
 #chatbox {
     position: fixed;
     bottom: 80px;
@@ -265,7 +201,9 @@ nav .explore-btn {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     display: none;
     flex-direction: column;
+    z-index: 5000;   /* Always on top */
 }
+
 #chat-header {
     background: purple;
     color: white;
@@ -316,11 +254,12 @@ nav .explore-btn {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
-
 }
 
 
+
 /* Responsive adjustments for smaller screens */
+/* side menu */
 @media (max-width: 768px) {
   /* Hide normal nav items */
   nav ul {
@@ -346,7 +285,6 @@ nav .explore-btn {
     flex-direction: column;
   }
 }
-    /* Reduce chatbox size further */
 #chatbox {
     width: 260px;
     height: 360px;
@@ -361,38 +299,161 @@ nav .explore-btn {
     padding: 8px 14px;
 }
 
+
+
+/* Fullscreen background video */
+.video-background {
+    position: fixed;      /* Fixed in place */
+    top: 0;
+    left: 0;
+    width: 100vw;         /* Full viewport width */
+    height: 100vh;        /* Full viewport height */
+    object-fit: cover;    /* Fill screen without distortion */
+    z-index: -1;          /* Behind all content */
 }
 
-@media (max-width: 480px) {
-    /* Hide navbar completely for very small screens */
-    nav .logo {
-        font-size: 16px;
-    }
-    nav ul {
-        display: none; /* Hide nav links */
-    }
-    nav .explore-btn {
-        display: none; /* Hide explore button */
-    }
+/* map section  */
 
-    /* Chatbox becomes smaller */
-    #chatbox {
-        width: 220px;
-        height: 320px;
-        bottom: 50px;
-        right: 10px;
-    }
-
-    /* Sticky chatbot button smaller */
-    #chat-toggle {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
+.map-section {
+  padding: 40px 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
+.map-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
+.map-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #ddd;
+}
 
+/* Main container: sidebar + map */
+.container {
+  display: flex;
+  gap: 20px;
+  height: 80vh; /* take 80% of viewport height */
+}
 
+/* Sidebar styles */
+.sidebar {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow-y: auto;
+}
 
+.sidebar h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #444;
+}
 
+.sidebar input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
 
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar ul li:hover {
+  background: #ddd;
+}
+
+/* Map styles */
+/* Map Section */
+#sikkim-map {
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+#sikkim-map h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+/* Container for map + details */
+.map-container {
+  display: flex;           /* side by side */
+  gap: 20px;               /* spacing between map and details */
+  align-items: stretch;    /* make both same height */
+}
+
+/* Map box */
+#map {
+  flex: 1;                 /* take equal width */
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Monastery details */
+#monastery-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+#monastery-details h4{
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Image inside details */
+#monastery-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+/* Description at bottom of details box */
+.monastery-desc {
+  margin-top: auto;       /* pushes it below image */
+  padding-top: 10px;
+}
+
+.monastery-desc p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Optional: responsive adjustments */
+@media (max-width: 768px) {
+  .map-container {
+    flex-direction: column;   /* stack vertically on small screens */
+  }
+}
